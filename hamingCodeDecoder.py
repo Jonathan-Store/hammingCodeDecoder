@@ -19,12 +19,14 @@ def locateError(array,checkC13,checkC23,checkR13,checkR23):
     elif checkR13 == False and checkC23 == True:
         errorLocationR = 2
     else:
-        errorLocaitonR = 3
+        errorLocationR = 3
     
-    if array[errorLocationR,errorLocationC] == 1:
-        array[errorLocationR,errorLocationC] = 0
+    
+    
+    if array[errorLocationR][errorLocationC] == 1:
+        array[errorLocationR][errorLocationC] = 0
     else:
-        array[errorLocationR,errorLocationC] = 1
+        array[errorLocationR][errorLocationC] = 1
     
     return(array)
     
@@ -109,7 +111,7 @@ def main():
 
     array = [
         [0,0,0,0],
-        [0,0,0,0],
+        [0,0,1,0],
         [0,0,0,0],
         [0,0,0,0]
         ]
@@ -125,6 +127,11 @@ def main():
     checkRow23 = funCheckRow23(array)
     print("row23:",checkRow23)
 
-    fixedArray = locateError(array,checkColumn13,checkColumn23,checkRow13,checkRow23)
+    if hasErrors == True:
+        fixedArray = locateError(array,checkColumn13,checkColumn23,checkRow13,checkRow23)
+        for i in fixedArray:
+            print(i)
+    else:
+        print("Array has no errors")
     
 main()
