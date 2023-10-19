@@ -12,11 +12,11 @@ def locateError(array,checkC13,checkC23,checkR13,checkR23):
         errorLocationC = 3
     
     
-    if checkR13 == False and checkC23 == False:
+    if checkR13 == False and checkR23 == False:
         errorLocationR = 0
-    elif checkR13 == True and checkC23 == False:
+    elif checkR13 == True and checkR23 == False:
         errorLocationR = 1
-    elif checkR13 == False and checkC23 == True:
+    elif checkR13 == False and checkR23 == True:
         errorLocationR = 2
     else:
         errorLocationR = 3
@@ -57,10 +57,12 @@ def funCheckColumn13(array):
     for i in array:
         array1.append(i[1])
         array3.append(i[3])
-    array1Check = arrayErrorCheck(array1)
-    array3Check = arrayErrorCheck(array3)
+    combinedArray = [array1,array3]
     
-    if array1Check == False and array3Check == False:
+    
+    checkArray = arrayErrorCheck(combinedArray)
+    
+    if checkArray == False:
         return(False)
     else:
         return(True)
@@ -73,10 +75,13 @@ def funCheckColumn23(array):
     for i in array:
         array2.append(i[2])
         array3.append(i[3])
-    array2Check = arrayErrorCheck(array2)
-    array3Check = arrayErrorCheck(array3)
     
-    if array2Check == False and array3Check == False:
+    combinedArray = [array2,array3]
+    
+    
+    checkArray = arrayErrorCheck(combinedArray)
+    
+    if checkArray == False:
         return(False)
     else:
         return(True)
@@ -84,12 +89,13 @@ def funCheckColumn23(array):
 
 def funCheckRow13(array):
     array1 = array[1]
-    array2 = array[3]
+    array3 = array[3]
     
-    array1Check = arrayErrorCheck(array1)
-    array2Check = arrayErrorCheck(array2)
+    combinedArray = [array1,array3]
     
-    if array1Check == False and array2Check == False:
+    combinedCheck = arrayErrorCheck(combinedArray)
+    
+    if combinedCheck == False:
         return(False)
     else:
         return(True)
@@ -98,10 +104,11 @@ def funCheckRow23(array):
     array2 = array[2]
     array3 = array[3]
     
-    array2Check = arrayErrorCheck(array2)
-    array3Check = arrayErrorCheck(array3)
+    combinedArray = [array2,array3]
     
-    if array2Check == False and array3Check == False:
+    combinedCheck = arrayErrorCheck(combinedArray)
+    
+    if combinedCheck == False:
         return(False)
     else:
         return(True)
@@ -110,10 +117,10 @@ def funCheckRow23(array):
 def main():
 
     array = [
-        [0,0,0,0],
-        [0,0,1,0],
-        [0,0,0,0],
-        [0,0,0,0]
+        [1, 1, 1, 0],
+        [1, 1, 1, 0],
+        [0, 0, 1, 1],
+        [0, 1, 1, 1]
         ]
     hasErrors = arrayErrorCheck(array)
     print("array:",hasErrors)
