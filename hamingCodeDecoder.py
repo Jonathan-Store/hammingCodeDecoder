@@ -2,6 +2,8 @@
 
 def locateError(array,checkC13,checkC23,checkR13,checkR23):
     
+    #update index for where error is
+    
     if checkC13 == False and checkC23 == False:
         errorLocationC = 0
     elif checkC13 == True and checkC23 == False:
@@ -22,7 +24,7 @@ def locateError(array,checkC13,checkC23,checkR13,checkR23):
         errorLocationR = 3
     
     
-    
+    #fix errors
     if array[errorLocationR][errorLocationC] == 1:
         array[errorLocationR][errorLocationC] = 0
     else:
@@ -51,6 +53,7 @@ def arrayErrorCheck(array):
         return True
 
 def funCheckColumn13(array):
+    #create a single array containing all values from the columns 1,3 and see if there are errors
     array1 = []
     array3 = []
     
@@ -69,6 +72,7 @@ def funCheckColumn13(array):
     
 
 def funCheckColumn23(array):
+    #create a single array containing all values from the columns 2,3 and see if there are errors
     array2 = []
     array3 = []
     
@@ -88,6 +92,7 @@ def funCheckColumn23(array):
     
 
 def funCheckRow13(array):
+    #create a single array containing all values from the rows 1,3 and see if there are errors
     array1 = array[1]
     array3 = array[3]
     
@@ -101,6 +106,7 @@ def funCheckRow13(array):
         return(True)
 
 def funCheckRow23(array):
+    #create a single array containing all values from the rows 2,3 and see if there are errors
     array2 = array[2]
     array3 = array[3]
     
@@ -115,6 +121,7 @@ def funCheckRow23(array):
     
     
 def main():
+    #create array and pass it to required locations
 
     array = [
         [1, 1, 1, 0],
